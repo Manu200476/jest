@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 export const sum = (a, b) => {
     return a + b
 }
@@ -23,4 +25,11 @@ export const average = (array) => {
     }
 
     return 0
+}
+
+export const api = async (id) => {
+    const req = await fetch(`https://pokeapi.co/api/v2/berry/${id}/`)
+        .then(res => res.json)
+
+    return req
 }
